@@ -1,23 +1,24 @@
-# Linux `cp` Command Assignment
+#!/bin/bash
 
-## Aim
+TMP_DIR="$1"
 
-Practice copying files and directories using the Linux `cp` command.
+# Create test files and directories
+echo "Hello World" > "$TMP_DIR/file1.txt"
+echo "Second File" > "$TMP_DIR/file2.txt"
 
-## Learning Objectives
+mkdir -p "$TMP_DIR/documents"
 
-By completing this assignment, students should be able to:
+mkdir -p "$TMP_DIR/source_dir"
+echo "Sample File" > "$TMP_DIR/source_dir/sample.txt"
 
-1. Copy a single file to another file.
-2. Copy a file into a different directory.
-3. Copy multiple files into a directory.
-4. Copy a directory recursively using `cp -r`.
+# 1. Copy a single file
+cp "$TMP_DIR/file1.txt" "$TMP_DIR/file2.txt"
 
-## Student Instructions
+# 2. Copy a file to a different directory
+cp "$TMP_DIR/file1.txt" "$TMP_DIR/documents/"
 
-Work in the provided repository.
+# 3. Copy multiple files to a directory
+cp "$TMP_DIR/file1.txt" "$TMP_DIR/file2.txt" "$TMP_DIR/documents/"
 
-Your task is to complete:
-
-```text
-starter/solution.sh
+# 4. Copy a directory recursively
+cp -r "$TMP_DIR/source_dir" "$TMP_DIR/backup_dir"
